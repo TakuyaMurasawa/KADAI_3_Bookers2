@@ -10,6 +10,38 @@
   </head>
 
   <body>
+    
+    
+    <% if user_signed_in? %>
+     <li>
+      
+     </li>
+     <li>
+       
+     </li>
+     <li>
+       
+     </li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        
+      </li>
+      <li>
+        
+      </li>
+      <li>
+        <%= link_to "sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "login", new_user_session_path %>
+      </li>
+    <% end %>
     <%= yield %>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
