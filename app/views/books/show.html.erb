@@ -1,0 +1,9 @@
+<%= render 'users/side', user: @book.user %>
+<%= render 'books/side', book: @new_book %>
+
+<h3>Book detail</h3>
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg" %>
+<%= link_to @book.user.name, user_path(@book.user.id) %>
+<!--@user.name-->
+<%= @book.title %>
+<%= @book.body %>

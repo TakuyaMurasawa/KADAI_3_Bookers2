@@ -1,0 +1,10 @@
+
+
+<h2>New Book</h2>
+<%= form_with model:book, local:true do |f| %>
+<label>Title</label>
+<%= f.text_field :title %>
+<lavel>Opinion</lavel>
+<%= f.text_field :body %>
+<%= f.submit "Creat Book" %>
+<% end %>
