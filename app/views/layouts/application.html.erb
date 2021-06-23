@@ -4,44 +4,70 @@
     <title>KADAI3Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/93b338d458.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-
-    <% if user_signed_in? %>
-     <li>
-       <%= link_to "Home", user_path(current_user.id) %>
-     </li>
-     <li>
-       <%= link_to "Users", users_path %>
-     </li>
-     <li>
-       <%= link_to "Books", books_path %>
-     </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-
-      </li>
-      <li>
-
-      </li>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "login", new_user_session_path %>
-      </li>
-    <% end %>
+   <header>
+   <nav>
+     <div class="container">
+         <div class="row">
+         <div class="col-md-1">
+         <%= link_to "Books", root_path %>
+         </div>
+         <div class= "offset-md-7">
+       <% if user_signed_in? %>
+         <li class="col-md-1">
+           <!--<i class="fas fa-home"></i>-->
+           <%= link_to(content_tag(:i, 'Home', class: 'fas fa-home'), user_path(current_user.id)) %>
+         </li>
+         <li class="col-md-1">
+           <!--<i class="fas fa-users"></i>-->
+           <%= link_to(content_tag(:i, 'Users', class: 'fas fa-users'), users_path) %>
+         </li>
+         <li class="col-md-1">
+           <!--<i class="fas fa-book-open"></i>-->
+           <%= link_to(content_tag(:i, 'Books', class: 'fas fa-book-open'), books_path) %>
+         </li>
+         <li class="col-md-1">
+           <!--<i class="fas fa-sign-out-alt"></i>-->
+            <!--link_to "ログアウト", class="fas fa-sign-out-alt", destroy_user_session_path, method: :delete -->
+           <%= link_to(content_tag(:i, 'logout', class: 'fa fa-sign-out-alt'), destroy_user_session_path, :method => :delete) %>
+         </li>
+       <% else %>
+         <li class="col-md-1">
+           <!--<i class="fas fa-home"></i>-->
+           <%= link_to(content_tag(:i, 'Home', class: 'fas fa-home'), root_path) %>
+         </li>
+         <li class="col-md-1">
+           <!--<i class="fas fa-link"></i>-->
+           <%= link_to(content_tag(:i, 'About', class: 'fas fa-link'), about_path) %>
+         </li>
+         <li class="col-md-1">
+           <!--<i class="fas fa-user-plus"></i>-->
+           <%= link_to(content_tag(:i, 'sign up', class: 'fas fa-user-plus'), new_user_registration_path) %>
+         </li>
+         <li class="col-md-1">
+           <!--<i class="fas fa-sign-in-alt"></i>-->
+           <%= link_to(content_tag(:i, 'login', class: 'fas fa-sign-in-alt'), new_user_session_path) %>
+         </li>
+       <% end %>
+       </div>
+       </div>
+     </div>
+    </nav>
+    </header>
     <%= yield %>
     <footer>
-      <p>CopyRight Infratop.inc</p>
+      <div class="container mt-5">
+        <div class="row">
+          <div clas="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
