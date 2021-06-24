@@ -1,4 +1,20 @@
 class BooksController < ApplicationController
+before_action :authenticate_user!, only: [:edit, :index, :show]
+
+before_action :correct_post,only: [:edit]
+
+def authenticate_user!
+       unless user_signed_in?
+        redirect_to new_user_session_path
+       end
+end
+
+def correct_post
+        @book = Book.find(params[:id])
+    unless @book.user.id == current_user.id
+      redirect_to books_path
+    end
+end
 
   def index
     @book = Book.new

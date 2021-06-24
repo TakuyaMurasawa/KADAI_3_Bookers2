@@ -5,8 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         # :authentication_keys => [:username]
 
-  validates :name, uniqueness: true
   validates :name, presence: true
+  validates :name, length: { in: 2..20  }
+  validates :name, uniqueness: true
+
+  validates :introduction, length: { maximum: 50 }
 
   # def self.find_first_by_auth_conditions(warden_conditions)
   #   conditions = warden_conditions.dup

@@ -22,12 +22,121 @@
   box-sizing: border-box;
 }
 
+.home-title{
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white;
+}
+
+.top-login-actions{
+    color: #ffffff;
+    background-color: #1e90ff;
+}
+
+.top-signup-actions{
+    color: #ffffff;
+    background-color: #90ee90;
+}
+
+nav{
+    color:white;
+}
+
+header{
+    padding:14px;
+    background-color:#696969;
+    margin-bottom: 15px;
+}
+
 
 li{
     list-style: none;
     display: inline;
+    line-height: inherit;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
 
 h2, .h2 {
     font-size: 2rem;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.form{
+    margin-bottom: 1rem;
+}
+
+.user-form,.book-form{
+    display: block;
+    width: 100%;
+    // height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s
+}
+
+.user-image-form{
+    display: block;
+}
+
+.header-item {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
+    line-height: normal;
+    color: white;
+}
+
+.field,.actions {
+
+    margin-bottom: 10px;
+}
+
+.book-title-form,.book-body-form{
+
+    padding: 1px 2px
+}
+
+.book-actions{
+    padding: 1px 6px
+}
+
+.btn{
+    padding:1px auto;
+}
+
+.action{
+    color:#ffffff;
+    background-color: #008000;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.destroy-action{
+    color:#ffffff;
+    background-color: #b22222;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.login{
+    color:#ffffff;
+    background-color:#0000ff;
+}
+
+.signup{
+    color:#ffffff;
+    background-color:#008000;
+
 }

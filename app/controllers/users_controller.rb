@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  
+  before_action :authenticate_user!, only: [:edit, :index, :show]
+
+def authenticate_user!
+       unless user_signed_in?
+        redirect_to new_user_session_path
+       end
+end
+
   def show
     @book = Book.new
     @user = User.find(params[:id])
@@ -30,7 +39,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image, :profile_Introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
 

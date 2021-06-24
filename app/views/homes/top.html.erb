@@ -19,10 +19,14 @@
 
       <div class="btn-wrapper col-10 mx-auto">
         <div class="row">
-          <%= link_to "login", new_user_session_path %>
+          <div class="col-10 mx-auto">
+          <%= link_to "Log in", new_user_session_path, class: 'btn btn-info btn-block mb-3 top-login-actions' %>
+          </div>
         </div>
         <div class="row">
-           <%= link_to "sign up", new_user_registration_path %>
+          <div class="col-10 mx-auto">
+           <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-info btn-block mb-3 top-signup-actions' %>
+           </div>
         </div>
       </div>
     </div>
