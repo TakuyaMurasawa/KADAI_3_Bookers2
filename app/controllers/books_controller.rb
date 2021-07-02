@@ -35,6 +35,7 @@ end
   def show
     @new_book = Book.new
     @book = Book.find(params[:id])
+    @book_comment = BookComment.new
     # Nに値するbookのuser_idカラムをもとにUserからuse.idを探す
     # @user = User.find(params[:user_id])
     # @user = @book.user
