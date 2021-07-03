@@ -32,7 +32,7 @@
                 <% if @book.favorited_by?(current_user) %>
                 <td>
                   <p>
-                  <% link_to book_favorites_path(@book), method: :delete do %>
+                  <%= link_to book_favorites_path(@book), method: :delete do %>
                   ❤<%= @book.favorites.count %>いいね
                   <% end %>
                   </p>
@@ -40,7 +40,7 @@
                 <% else %>
                 <td>
                   <p>
-                  <% link_to book_favorites_path(@book), method: :post do %>
+                  <%= link_to book_favorites_path(@book), method: :post do %>
                   ♡<%= @book.favorites.count %>いいね
                   <% end %>
                   </p>
@@ -72,7 +72,7 @@
           </table>
           <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
           <div class="field">
-              <%= f.text_area :comment %>
+              <%= f.text_area :comment, class: "w-100" %>
               <%= f.submit "送信", class: "action", rows: '5' %>
           </div>
           <% end %>
