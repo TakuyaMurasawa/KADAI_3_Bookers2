@@ -1,0 +1,42 @@
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "User" %>
+  <h3>Users search for "<%= @content %>"</h3>
+  　<thead>
+  　  <tr>
+  　 <th></th>
+  　   <th>name</th>
+  　  </tr>
+  　</thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg" %></td>
+          <td><%= user.name %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <h3>Books search for "<%= @content %>"</h3>
+    <thead>
+      <tr>
+        <th></th>
+        <th>title</th>
+        <th>opinion</th>
+      </tr>
+    </thead>
+
+      <% @books.each do |book| %>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg" %></td>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        </tr>
+      </tbody>
+      <% end %>
+
+  <% end %>
+</table>
