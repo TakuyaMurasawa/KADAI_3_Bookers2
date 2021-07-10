@@ -13,7 +13,7 @@
           <h2>Book detail</h2>
           <table class="table">
             <tbody>
-              <tr>
+              <tr id="book_<%= @book.id %>">
                 <td><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no-image.jpg" %><br>
                 <%= link_to @book.user.name, user_path(@book.user.id) %></td>
                         <!--@user.name-->
@@ -29,16 +29,16 @@
               <td><%=link_to "Destroy", book_path(@book.id),method: :delete, "data-confirm" => "本当に消しますか？", class: "destroy-action" %></td>
 
               <% else %>
-                <%= render 'favorites/favorites', book: @book %>
+                <td class="favorites"><%= render 'favorites/favorites', book: @book %></td>
 
               <td class="comments-count"><p>コメント件数:<%= @book.book_comments.count %></p></td>
               <% end %>
               </tr>
-
+              
               <!--コメント・いいね下記追加部分-->
-              <%= render 'book_comments/comments', books: @book %>
+              <td class="book_comments"><%= render 'book_comments/comments', books: @book %></td>
 
-
+              
 
 
             </tbody>

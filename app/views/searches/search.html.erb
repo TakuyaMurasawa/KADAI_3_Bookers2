@@ -1,6 +1,6 @@
 <table class="table table-hover table-inverse">
   <!--検索対象モデルがUserの時 -->
-  <% if @range == "User" %>
+  <% if @model == "User" %>
   <h3>Users search for "<%= @content %>"</h3>
   　<thead>
   　  <tr>
@@ -9,7 +9,7 @@
   　  </tr>
   　</thead>
     <tbody>
-      <% @users.each do |user| %>
+      <% @records.each do |user| %>
         <tr>
           <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg" %></td>
           <td><%= user.name %></td>
@@ -28,7 +28,7 @@
       </tr>
     </thead>
 
-      <% @books.each do |book| %>
+      <% @records.each do |book| %>
       <tbody>
         <tr>
           <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg" %></td>

@@ -24,7 +24,7 @@
           </thead>
         <% @books.each do |book| %>
           <tbody>
-            <tr>
+            <tr id="book_<%= book.id %>">
 
                 <td><%= link_to attachment_image_tag(book.user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg"), user_path(book.user) %></td>
 
@@ -32,7 +32,7 @@
               <td><%= book.body %></td>
 
               <!--いいね機能-->
-              <%= render 'favorites/favorites', book: book %>
+              <td class="favorites"><%= render 'favorites/favorites', book: book %></td>
 
               <!--コメント機能-->
               <td class="comments-count"><p>コメント数:<%= book.book_comments.count %></p></td>
